@@ -1,0 +1,503 @@
+/* MICAELA OSTERLUND
+================================================================== */
+
+
+
+
+/* BASE STYLES
+================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #000000;
+  color: #F2F2F2;
+  margin: 0;
+  padding: 0 0 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.3;
+  display: block;
+  overflow-x: hidden;
+  width: 100vw;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+  display: block;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  padding: 6em 1em;
+}
+
+header {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+/* TYPOGRAPHY
+================================================================== */
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+p {}
+
+a {
+  color: inherit;
+  transition: all 0.5s;
+}
+
+a:hover {
+  color: #FFF101;
+}
+
+
+
+
+/* GRID
+================================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  max-width: 55em;
+  margin: 6em auto;
+}
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* NAVIGATION
+================================================================== */
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: black;
+  padding: 3em;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+  grid-gap: 3em;
+  font-size: 1.5em;
+  opacity: 0%;
+  transform: translateX(100vw);
+  transition: opacity 0.5s;
+}
+
+.nav-active nav {
+  opacity: 100%;
+  transform: translateX(0);
+}
+
+.nav-toggle {
+  position: fixed;
+  font-size: 1.5em;
+  right: 1em;
+  top: 1em;
+  width: 2em;
+  height: 2em;
+  z-index: 6;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.5s;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 2em;
+  background-color: #F2F2F2;
+  margin: 0.125em;
+  transform: rotate(0);
+  transition: all 0.25s;
+  transform-origin: center;
+}
+
+.nav-toggle:hover {
+  transform: scale(1.1);
+}
+
+.nav-active .nav-toggle span:nth-child(1) {
+  transform: rotate(-45deg) translate(-0.25em, 0.25em);
+}
+
+.nav-active .nav-toggle span:nth-child(2) {
+  opacity: 0%;
+}
+
+.nav-active .nav-toggle span:nth-child(3) {
+  transform: rotate(45deg) translate(-0.25em, -0.25em);
+}
+
+nav a {
+  text-decoration: none;
+  display: block;
+  padding: 0.25em 1.5em;
+}
+
+.home-link {
+  display: block;
+}
+
+.home .home-link,
+.about .about-link,
+.work .work-link {
+  color: #FFF101;
+  border-bottom: 1px solid;
+}
+
+.moon-and-stars {
+  position: fixed;
+  top: 4em;
+  left: 4em;
+  z-index: 4;
+}
+
+.moon-and-stars img {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+
+/* FOOTER
+================================================================== */
+
+footer {
+  background: #000000;
+  color: #F2F2F2;
+  padding: 1em;
+  position: relative;
+}
+
+.links{
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  align-content: center;
+  justify-content: end;
+  grid-gap: 1em;
+  padding: 1em;
+}
+
+.links a {
+  display: block;
+  text-decoration: none;
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+
+.links a:hover {
+  transform: scale(1.1);
+}
+
+footer .firefly {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: rotate(45deg);
+  margin: 1em;
+  animation-delay: 1s;
+}
+
+footer .firefly::before {
+  animation-delay: 2s;
+}
+
+
+
+
+/* HOME
+================================================================== */
+
+.home {
+  background-image: url(images/night-sky.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.home .grid {
+  justify-content: center;
+  grid-gap: 2em;
+}
+
+.wax-and-wane {
+  position: relative;
+  width: 20em;
+  height: 20em;
+  cursor: pointer;
+  margin: 2em auto;
+  display: block;
+}
+
+.wax-and-wane img {
+  opacity: 0%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.25s linear;
+}
+
+.wax-and-wane .active-phase {
+  opacity: 100%;
+}
+
+.home-logo {
+  display: block;
+  margin: 0 auto;
+  width: 25em
+}
+
+.treeline {
+  position: absolute;
+  bottom: -1em;
+  left: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+.home .moon-and-stars {
+  display: none;
+}
+
+
+
+
+
+/* BLINKING STARS
+================================================================== */
+
+.star {
+  position: absolute;
+  z-index: -1;
+  animation-name: blinking;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0%;
+}
+
+.star-1 {
+  transform: scale(1);
+  top: 20vh;
+  left: 20vw;
+  animation-delay: 1.1s;
+}
+
+.star-2 {
+  transform: scale(0.5);
+  top: 40vh;
+  left: 40vw;
+  animation-delay: 1.5s;
+}
+
+.star-3 {
+  transform: scale(0.25);
+  top: 70vh;
+  left: 80vw;
+  animation-delay: 1.5s;
+}
+
+.star-4 {
+  transform: scale(0.25);
+  top: 25vh;
+  left: 5vw;
+  animation-delay: 1.325s;
+}
+
+.star-5 {
+  transform: scale(0.325);
+  top: 95vh;
+  left: 25vw;
+  animation-delay: 0.75s;
+}
+
+.star-6 {
+  transform: scale(0.175);
+  top: 50vh;
+  left: 10vw;
+  animation-delay: 1.25s;
+}
+
+.star-7 {
+  transform: scale(0.5);
+  top: 90vh;
+  left: 50vw;
+  animation-delay: 0.6s;
+}
+
+.star-8 {
+  transform: scale(0.25);
+  top: 60vh;
+  left: 85vw;
+  animation-delay: 0.5s;
+}
+
+.star-9 {
+  transform: scale(0.325);
+  top: 90vh;
+  left: 10vw;
+  animation-delay: 1.25s;
+}
+
+@keyframes blinking {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+
+/* FIREFLIES
+================================================================== */
+
+.firefly {
+  display: block;
+  height: 3em;
+  width: 3em;
+  background-image: url(images/firefly.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.firefly:before {
+  content: '';
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  bottom: -0.25em;
+  right: 0;
+  background-image: radial-gradient(circle, #FFF101, transparent 50%);
+  animation-name: firefly;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0%;
+}
+
+
+.home .firefly-1 {
+  position: absolute;
+  bottom: 0em;
+  right: 3em;
+  z-index: 2;
+}
+
+@keyframes firefly {
+  0% {
+    opacity: 0%;
+  }
+  75% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 50%;
+  }
+}
+
+
+/* ABOUT
+================================================================== */
+
+.about .grid img {
+  display: block;
+  filter: grayscale(1);
+  transition: all 0.5s;
+}
+
+.about .grid img:hover {
+  filter: grayscale(0);
+}
+
+
+
+/* WORK
+================================================================== */
+
+.work .grid img {
+  display: block;
+  filter: grayscale(1);
+  transition: all 0.5s;
+}
+
+.work .grid img:hover {
+  filter: grayscale(0);
+}
+
+
+
+/* MEDIA QUERIES
+================================================================== */
+
+@media (min-width: 900px) {
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  nav {
+    transform: translateX(0);
+    opacity: 100%;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: auto;
+    height: auto;
+    background: transparent;
+    grid-template-columns: auto auto;
+    justify-content: end;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .home-link {
+    display: none;
+  }
+
+
+
+}
